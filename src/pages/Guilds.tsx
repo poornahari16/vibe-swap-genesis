@@ -139,7 +139,7 @@ const Guilds = () => {
                                   <div className="font-semibold flex items-center space-x-2">
                                     <span>{member.name}</span>
                                     {member.isCurrentUser && (
-                                      <Badge variant="outline" size="sm">You</Badge>
+                                      <Badge variant="outline" className="text-xs">You</Badge>
                                     )}
                                   </div>
                                   <div className="text-sm text-muted-foreground">
