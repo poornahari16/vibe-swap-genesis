@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useGame } from '@/contexts/GameContext';
 import { Trophy, Users, TrendingUp, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface StarboardData {
   id: string;
@@ -28,6 +28,12 @@ interface StarboardData {
 
 const Guilds = () => {
   const { level, xp, totalSwaps, totalVolume } = useGame();
+  const navigate = useNavigate();
+
+  const handleContributorClick = (contributorName: string) => {
+    // Navigate to profile page - you can later modify this to pass contributor data
+    navigate('/profile', { state: { contributor: contributorName } });
+  };
 
   const starboards: StarboardData[] = [
     {
@@ -164,7 +170,11 @@ const Guilds = () => {
                 { name: 'SwapKing', rank: 2, score: '890,662', badge: '🥈', change: '+8%' },
                 { name: 'TokenHunter', rank: 3, score: '576,890', badge: '🥉', change: '+15%' }
               ].map((contributor) => (
-                <Card key={contributor.rank} className="gaming-card hover:shadow-lg transition-all duration-300">
+                <Card 
+                  key={contributor.rank} 
+                  className="gaming-card hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105"
+                  onClick={() => handleContributorClick(contributor.name)}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
@@ -192,7 +202,6 @@ const Guilds = () => {
               <Button
                 key={category}
                 variant={index === 0 ? "default" : "outline"}
-                size="sm"
                 className={index === 0 ? "bg-primary" : ""}
               >
                 {category}
@@ -252,13 +261,17 @@ const Guilds = () => {
                       </div>
                       <div className="space-y-2">
                         {starboard.topContributors.slice(0, 3).map((contributor) => (
-                          <div key={contributor.rank} className="flex items-center justify-between text-xs">
+                          <div 
+                            key={contributor.rank} 
+                            className="flex items-center justify-between text-xs cursor-pointer hover:bg-muted/20 p-1 rounded transition-colors"
+                            onClick={() => handleContributorClick(contributor.name)}
+                          >
                             <div className="flex items-center space-x-2">
                               <span className="font-medium text-muted-foreground">#{contributor.rank}</span>
                               <Avatar className="w-5 h-5">
                                 <AvatarFallback className="text-xs">{contributor.avatar}</AvatarFallback>
                               </Avatar>
-                              <span className={contributor.name === 'You' ? 'font-semibold text-primary' : ''}>
+                              <span className={contributor.name === 'You' ? 'font-semibold text-primary' : 'hover:text-primary'}>
                                 {contributor.name}
                               </span>
                             </div>
@@ -271,7 +284,6 @@ const Guilds = () => {
                     {/* Action Button */}
                     <Button 
                       className="w-full jupiter-button"
-                      size="sm"
                     >
                       <TrendingUp className="w-4 h-4 mr-2" />
                       Join Starboard
