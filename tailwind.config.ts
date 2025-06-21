@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Jupiter swap theme colors
+				jupiter: {
+					50: '#f0f7ff',
+					100: '#e0efff',
+					200: '#b9ddff',
+					300: '#7cc4ff',
+					400: '#36a7ff',
+					500: '#0c8cfc',
+					600: '#006dd6',
+					700: '#0056ad',
+					800: '#02498f',
+					900: '#083d75'
+				},
+				// Gamification colors
+				xp: '#10b981',
+				legendary: '#f59e0b',
+				epic: '#8b5cf6',
+				rare: '#3b82f6',
+				common: '#6b7280'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +104,53 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'slide-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px rgba(59, 130, 246, 0.5)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6)'
+					}
+				},
+				'xp-fill': {
+					'0%': { width: '0%' },
+					'100%': { width: 'var(--progress-width)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-up': 'slide-up 0.4s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'xp-fill': 'xp-fill 1s ease-out forwards'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'jupiter-gradient': 'linear-gradient(135deg, #0c8cfc 0%, #006dd6 100%)',
+				'gaming-gradient': 'linear-gradient(135deg, #8b5cf6 0%, #3b82f6 50%, #10b981 100%)'
 			}
 		}
 	},
