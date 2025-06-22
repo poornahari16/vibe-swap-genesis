@@ -1,73 +1,102 @@
-# Welcome to your Lovable project
+# 🥊 Swap Battle
 
-## Project info
+**Swap Battle** is a decentralized token swap interface built on the **Solana blockchain**, designed to make DeFi more engaging, rewarding, and fun. By combining the power of the [Jupiter Aggregator API](https://docs.jup.ag/) with gamified mechanics like XP, streaks, and badges, it transforms traditional token swaps into an interactive Web3 experience.
 
-**URL**: https://lovable.dev/projects/400bafc5-37b6-4633-b29a-07348ad88448
+This project was built as part of a hackathon challenge and showcases how gamification can increase user retention and behavior in a DEX environment.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌟 Key Features
 
-**Use Lovable**
+- 🔁 **Real-time Token Swapping** using Jupiter Aggregator API
+- 🕹️ **Gamified Experience**
+  - Earn **XP** for every successful swap
+  - Unlock **badges** as you hit milestones
+  - Maintain **streaks** for daily activity bonuses
+  - Leaderboard-ready architecture for future expansion
+- 🧩 **Component-driven UI** using Radix, shadcn, TailwindCSS
+- 🎨 **Dark mode & responsive design**
+- 🔒 **Validated forms** powered by Zod + React Hook Form
+- ⚡ **Built with Vite + TypeScript** for fast builds and DX
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/400bafc5-37b6-4633-b29a-07348ad88448) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+| Layer             | Technology                             |
+|------------------|-----------------------------------------|
+| Framework         | React 18, Vite                         |
+| Blockchain        | Solana (via Jupiter Aggregator API)    |
+| Gamification Logic| Custom XP/Badge System in React        |
+| Styling           | Tailwind CSS, tailwindcss-animate      |
+| UI Components     | shadcn/ui, Radix UI, Lucide Icons      |
+| Form Handling     | React Hook Form, Zod                   |
+| State Management  | TanStack React Query                   |
+| Routing           | React Router DOM                       |
+| Language          | TypeScript                             |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 📁 Project Structure
+swap-battle/
+├── public/
+├── src/
+│ ├── components/ # Shared UI and gamified widgets
+│ ├── pages/ # Main route pages
+│ ├── hooks/ # Custom hooks (e.g., useXP, useStreak)
+│ ├── lib/ # Jupiter API logic and helpers
+│ └── App.tsx # App entry point
+├── tailwind.config.ts
+├── postcss.config.js
+├── vite.config.ts
+└── package.json
 
-Follow these steps:
+🎮 Gamification Logic
+The project includes lightweight, extensible gamification features:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+useXP() Hook: Tracks experience gained per swap
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+useStreak() Hook: Tracks consecutive daily swaps
 
-# Step 3: Install the necessary dependencies.
-npm i
+BadgeSystem: Assigns visual badges based on XP or streak thresholds
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Data can be connected to wallets or profiles in future expansions
 
-**Edit a file directly in GitHub**
+This system is entirely modular and can be disabled or expanded (e.g. leaderboard, quests, level-ups).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🧠 How It Works
+User selects input/output tokens and amount.
 
-**Use GitHub Codespaces**
+Jupiter API fetches best swap route in real-time.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+UI displays output amounts, fees, and slippage.
 
-## What technologies are used for this project?
+Swap confirmed (and logged for XP/streaks).
 
-This project is built with:
+(Coming Soon) Wallet integration to execute real transactions.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+🚀 Future Roadmap
+🔗 Wallet Integration (Phantom, Backpack)
 
-## How can I deploy this project?
+🧾 Swap History + User Profile Dashboard
 
-Simply open [Lovable](https://lovable.dev/projects/400bafc5-37b6-4633-b29a-07348ad88448) and click on Share -> Publish.
+🥇 Public Leaderboards
 
-## Can I connect a custom domain to my Lovable project?
+🧩 NFT-based Badge System
 
-Yes, you can!
+🌍 Multi-language Support
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🤝 Contributing
+Pull requests and forks are welcome! To contribute:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Fork the repo
+
+Create your feature branch: git checkout -b feature/xyz
+
+Commit your changes
+
+Push to your branch
+
+Open a PR
+
+
