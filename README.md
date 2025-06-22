@@ -51,52 +51,34 @@ swap-battle/
 ├── vite.config.ts
 └── package.json
 
-🎮 Gamification Logic
+## 🎮 Gamification Logic
 The project includes lightweight, extensible gamification features:
+- useXP() Hook: Tracks experience gained per swap
+- useStreak() Hook: Tracks consecutive daily swaps
+- BadgeSystem: Assigns visual badges based on XP or streak thresholds
+- Data can be connected to wallets or profiles in future expansions
+- This system is entirely modular and can be disabled or expanded (e.g. leaderboard, quests, level-ups).
 
-useXP() Hook: Tracks experience gained per swap
+## 🧠 How It Works
+- User selects input/output tokens and amount.
+- Jupiter API fetches best swap route in real-time.
+- UI displays output amounts, fees, and slippage.
+- Swap confirmed (and logged for XP/streaks).
+- (Coming Soon) Wallet integration to execute real transactions.
 
-useStreak() Hook: Tracks consecutive daily swaps
-
-BadgeSystem: Assigns visual badges based on XP or streak thresholds
-
-Data can be connected to wallets or profiles in future expansions
-
-This system is entirely modular and can be disabled or expanded (e.g. leaderboard, quests, level-ups).
-
-🧠 How It Works
-User selects input/output tokens and amount.
-
-Jupiter API fetches best swap route in real-time.
-
-UI displays output amounts, fees, and slippage.
-
-Swap confirmed (and logged for XP/streaks).
-
-(Coming Soon) Wallet integration to execute real transactions.
-
-🚀 Future Roadmap
+## 🚀 Future Roadmap
 🔗 Wallet Integration (Phantom, Backpack)
-
 🧾 Swap History + User Profile Dashboard
-
 🥇 Public Leaderboards
-
 🧩 NFT-based Badge System
-
 🌍 Multi-language Support
 
-🤝 Contributing
+## 🤝 Contributing
 Pull requests and forks are welcome! To contribute:
-
-Fork the repo
-
-Create your feature branch: git checkout -b feature/xyz
-
-Commit your changes
-
-Push to your branch
-
-Open a PR
+- Fork the repo
+- Create your feature branch: git checkout -b feature/xyz
+- Commit your changes
+- Push to your branch
+- Open a PR
 
 
